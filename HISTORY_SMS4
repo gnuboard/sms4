@@ -1,0 +1,117 @@
+
+베타 0.1.2 (11.07.06)
+    : UTF-8 에서 전송되지 않던 오류 수정
+    : 문자 다시보내기에서 " 가 들어가면 자바스크립트 나던 오류 수정
+
+    lib/sms.lib.php
+
+        아래 코드가 추가 되었습니다.
+
+        global $g4;
+
+        if (strtolower($g4['charset']) == 'utf-8') {
+            $strMessage = iconv('utf-8', 'euc-kr', $strMessage);
+        }
+
+    
+    adm/sms_admin/sms_write.php
+
+        아래 코드가 수정 되었습니다.
+
+        //echo "add(\"$row[wr_message]\");\n";
+        $wr_message = str_replace('"', '\"', $row[wr_message]);
+        $wr_message = str_replace("\r\n", "\\n", $wr_message);
+        echo "add(\"$wr_message\");\n";
+
+베타 0.1.1 (07.11.22)
+    : {이름} 치환 오류 수정
+    : 핸드폰번호관리에서 메모 기능 추가
+
+    lib/sms.lib.php
+    adm/sms_admin/num_book_write.php
+    adm/sms_admin/num_book_update.php
+
+베타 0.1.0 (07.10.17)
+    : 관리권한설정 오류 수정
+    : 소스 100% 공개
+
+    전체 파일을 변경해 주세요.
+
+베타 0.0.9 (07.09.21)
+    : 베타 기간 2007-10-31 로 연장
+    : 회원간 문자 전송 페이지 이모티콘 전체 출력 수정
+
+    전체 파일을 변경해 주세요.
+
+베타 0.0.8 (07.08.28)
+    : 베타 기간 2007-09-30 로 연장
+
+    전체 파일을 변경해 주세요.
+
+베타 0.0.7 (07.07.26)
+    : 베타 기간 2007-08-31 로 연장
+    : 회원간 문자전송시 최고관리자의 보내는번호 제한 해제
+    : 이모티콘 글자 잘리는 현상 수정
+
+    전체 파일을 변경해 주세요.
+
+베타 0.0.6 (07.07.10)
+    : 문자전송시 회원권한(level)별 전송 기능 추가
+    : 핸드폰번호 그룹명 수정오류 수정
+    : 데모형식 변경(내부 코드)
+    : 핸드폰번호 연속입력시 그룹 고정
+    : sideview 에 문자 보내기 메뉴 추가
+
+    adm/sms_admin/sms_write.php
+    adm/sms_admin/sms_write_level.php
+    adm/sms_admin/sms_write_send.php
+    adm/sms_admin/num_group_update.php
+    adm/sms_admin/num_book_write.php
+    adm/sms_admin/num_book_update.php
+    lib/sms.lib.php
+    js/sideview.js
+    sms/index.php
+    sms/write.php
+
+베타 0.0.5 (07.07.03)
+    : 문자전송창 폰트변경(굴림체) 및 개선
+    : 회원 문자전송 페이지에서 관리자는 회신번호 수정 가능
+    : 회원 문자전송 페이지에서 관리자가 전송시 각종 제한 제거 (오류수정)
+    : 회원 문자전송시 포인트차감이 없어도 포인트 내역에 남김
+
+    adm/sms_admin/sms_write.php
+    adm/sms_admin/sms_write_form.php
+    adm/sms_admin/form_write.php
+    adm/sms_admin/form_list.php
+    sms/write.php
+    sms/write_update.php
+    sms/write_form.php
+
+베타 0.0.4 (07.07.02)
+    : 회원 문자전송 페이지에서 관리자가 전송시 각종 제한 제거
+    : 회원 문자전송 내역 페이지 추가
+    : 회원 문자전송시 이모티콘 사용페이지 추가
+
+    adm/admin.menu900.php
+    adm/sms_admin/history_member.php
+    adm/sms_admin/form_group.php
+    adm/sms_admin/form_group_update.php
+    sms/write.php
+    sms/write_update.php
+    sms/write_form.php
+
+베타 0.0.3 (07.06.29)
+    : 예약전송 오류 수정
+    : 관리권한설정 적용되도록 수정
+    : 재전송시 메세지 변경 가능
+    : 기타 수정
+
+베타 0.0.2 (07.06.20)
+    : 회원정보업데이트시 그누보드가 최신버젼이 아닌경우 에러나는 오류 수정
+    : 일반회원이 문자를 전송할 수 있는 페이지 추가
+    : 기타 버그
+
+베타 0.0.1 (07.06.13)
+    :   오픈베타 파일 배포
+
+SMS4 이력 ↑
